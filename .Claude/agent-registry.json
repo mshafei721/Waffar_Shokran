@@ -1,0 +1,1127 @@
+{
+  "registry": {
+    "version": "2.0.0",
+    "last_updated": "2024-08-04",
+    "total_agents": 150,
+    "total_teams": 17,
+    "description": "Comprehensive registry of Claude Code AI agents organized by specialized teams",
+    "teams": {
+      "backend-team": {
+        "name": "Backend Development Team",
+        "description": "Server-side development specialists across multiple languages and frameworks",
+        "location": "backend-team/",
+        "orchestrator": "backend-team-orchestrator",
+        "agents": [
+          {
+            "name": "backend-architect",
+            "description": "RESTful APIs, microservices, database design",
+            "specialties": ["API design", "microservices", "system architecture"],
+            "technologies": ["REST", "GraphQL", "microservices", "databases"]
+          },
+          {
+            "name": "backend-team-orchestrator",
+            "description": "Coordinates all backend development activities",
+            "specialties": ["team coordination", "project management", "technical leadership"],
+            "technologies": ["orchestration", "coordination", "management"]
+          },
+          {
+            "name": "python-backend-expert",
+            "description": "Django, FastAPI, Flask, async programming",
+            "specialties": ["Python", "web frameworks", "async programming"],
+            "technologies": ["Django", "FastAPI", "Flask", "Python", "async"]
+          },
+          {
+            "name": "nodejs-backend-expert",
+            "description": "Express, NestJS, Koa, serverless functions",
+            "specialties": ["Node.js", "JavaScript", "serverless"],
+            "technologies": ["Express", "NestJS", "Koa", "Node.js", "serverless"]
+          },
+          {
+            "name": "java-backend-expert",
+            "description": "Spring Boot, JPA, enterprise patterns",
+            "specialties": ["Java", "enterprise", "JVM"],
+            "technologies": ["Spring Boot", "JPA", "Java", "Maven", "Gradle"]
+          },
+          {
+            "name": "golang-backend-expert",
+            "description": "Goroutines, channels, microservices",
+            "specialties": ["Go", "concurrency", "microservices"],
+            "technologies": ["Go", "goroutines", "channels", "gin", "fiber"]
+          },
+          {
+            "name": "rust-backend-expert",
+            "description": "High-performance systems, memory safety",
+            "specialties": ["Rust", "performance", "systems programming"],
+            "technologies": ["Rust", "Actix", "Tokio", "Serde"]
+          },
+          {
+            "name": "php-backend-expert",
+            "description": "Laravel, Symfony, modern PHP 8+",
+            "specialties": ["PHP", "web development", "MVC"],
+            "technologies": ["Laravel", "Symfony", "PHP", "Composer"]
+          },
+          {
+            "name": "ruby-backend-expert",
+            "description": "Ruby on Rails, Sinatra, metaprogramming",
+            "specialties": ["Ruby", "Rails", "metaprogramming"],
+            "technologies": ["Ruby on Rails", "Sinatra", "Ruby", "gems"]
+          },
+          {
+            "name": "dotnet-backend-expert",
+            "description": "ASP.NET Core, C#, Entity Framework",
+            "specialties": ["C#", ".NET", "enterprise"],
+            "technologies": ["ASP.NET Core", "Entity Framework", "C#", ".NET"]
+          },
+          {
+            "name": "elixir-backend-expert",
+            "description": "Phoenix, OTP, fault-tolerant systems",
+            "specialties": ["Elixir", "functional programming", "fault tolerance"],
+            "technologies": ["Elixir", "Phoenix", "OTP", "BEAM"]
+          },
+          {
+            "name": "scala-backend-expert",
+            "description": "Akka, Play Framework, functional programming",
+            "specialties": ["Scala", "functional programming", "JVM"],
+            "technologies": ["Scala", "Akka", "Play Framework", "SBT"]
+          },
+          {
+            "name": "kotlin-backend-expert",
+            "description": "Spring Boot, Ktor, coroutines",
+            "specialties": ["Kotlin", "JVM", "coroutines"],
+            "technologies": ["Kotlin", "Ktor", "Spring Boot", "coroutines"]
+          },
+          {
+            "name": "fastapi-expert",
+            "description": "Python FastAPI, async APIs, type safety",
+            "specialties": ["FastAPI", "Python", "async", "type safety"],
+            "technologies": ["FastAPI", "Pydantic", "Python", "OpenAPI"]
+          },
+          {
+            "name": "fastify-expert",
+            "description": "Node.js Fastify, high-performance APIs",
+            "specialties": ["Fastify", "Node.js", "performance"],
+            "technologies": ["Fastify", "Node.js", "JSON Schema", "plugins"]
+          },
+          {
+            "name": "gin-expert",
+            "description": "Go Gin framework, HTTP web services",
+            "specialties": ["Gin", "Go", "HTTP"],
+            "technologies": ["Gin", "Go", "HTTP", "middleware"]
+          },
+          {
+            "name": "fiber-expert",
+            "description": "Go Fiber, Express-inspired APIs",
+            "specialties": ["Fiber", "Go", "Express-like"],
+            "technologies": ["Fiber", "Go", "Express patterns", "Fasthttp"]
+          },
+          {
+            "name": "prisma-expert",
+            "description": "Prisma ORM, type-safe database access",
+            "specialties": ["Prisma", "ORM", "type safety"],
+            "technologies": ["Prisma", "TypeScript", "databases", "migrations"]
+          },
+          {
+            "name": "database-architect",
+            "description": "SQL optimization, NoSQL design, migrations",
+            "specialties": ["databases", "SQL", "NoSQL", "performance"],
+            "technologies": ["PostgreSQL", "MySQL", "MongoDB", "Redis"]
+          },
+          {
+            "name": "api-architect",
+            "description": "GraphQL, REST, gRPC, API versioning",
+            "specialties": ["API design", "GraphQL", "REST", "gRPC"],
+            "technologies": ["GraphQL", "REST", "gRPC", "OpenAPI"]
+          },
+          {
+            "name": "microservices-expert",
+            "description": "Service mesh, event sourcing, CQRS",
+            "specialties": ["microservices", "distributed systems", "architecture"],
+            "technologies": ["Kubernetes", "service mesh", "event sourcing", "CQRS"]
+          },
+          {
+            "name": "graphql-expert",
+            "description": "Schema design, resolver optimization, federation",
+            "specialties": ["GraphQL", "schema design", "federation"],
+            "technologies": ["GraphQL", "Apollo", "schema federation", "resolvers"]
+          },
+          {
+            "name": "serverless-backend-expert",
+            "description": "Lambda, Functions, event-driven architecture",
+            "specialties": ["serverless", "event-driven", "functions"],
+            "technologies": ["AWS Lambda", "Azure Functions", "Google Cloud Functions", "serverless"]
+          }
+        ]
+      },
+      "frontend-team": {
+        "name": "Frontend Development Team",
+        "description": "Client-side development specialists across modern frameworks and technologies",
+        "location": "frontend-team/",
+        "orchestrator": "frontend-team-orchestrator",
+        "agents": [
+          {
+            "name": "frontend-developer",
+            "description": "React, Vue, Angular, modern JS/TS",
+            "specialties": ["frontend", "JavaScript", "TypeScript"],
+            "technologies": ["React", "Vue", "Angular", "JavaScript", "TypeScript"]
+          },
+          {
+            "name": "frontend-team-orchestrator",
+            "description": "Coordinates all frontend development activities",
+            "specialties": ["team coordination", "frontend architecture"],
+            "technologies": ["orchestration", "coordination", "management"]
+          },
+          {
+            "name": "react-specialist",
+            "description": "Hooks, Context, Server Components, Next.js",
+            "specialties": ["React", "hooks", "components"],
+            "technologies": ["React", "Next.js", "hooks", "JSX"]
+          },
+          {
+            "name": "vue-specialist",
+            "description": "Composition API, Nuxt.js, Pinia",
+            "specialties": ["Vue", "composition API", "reactivity"],
+            "technologies": ["Vue", "Nuxt.js", "Pinia", "Vuex"]
+          },
+          {
+            "name": "angular-specialist",
+            "description": "Angular 17+, RxJS, NgRx, standalone components",
+            "specialties": ["Angular", "RxJS", "TypeScript"],
+            "technologies": ["Angular", "RxJS", "NgRx", "TypeScript"]
+          },
+          {
+            "name": "svelte-specialist",
+            "description": "Svelte 4/5, SvelteKit, reactive programming",
+            "specialties": ["Svelte", "reactivity", "compilation"],
+            "technologies": ["Svelte", "SvelteKit", "stores", "compilation"]
+          },
+          {
+            "name": "react-state-manager",
+            "description": "Redux, MobX, Zustand, state patterns",
+            "specialties": ["React", "state management", "Redux"],
+            "technologies": ["Redux", "MobX", "Zustand", "Recoil", "Context API"]
+          },
+          {
+            "name": "vue-state-manager",
+            "description": "Vuex, Pinia, reactive state management",
+            "specialties": ["Vue", "state management", "reactivity"],
+            "technologies": ["Vuex", "Pinia", "Vue", "reactivity"]
+          },
+          {
+            "name": "ui-component-builder",
+            "description": "Design systems, Storybook, component libraries",
+            "specialties": ["components", "design systems", "documentation"],
+            "technologies": ["Storybook", "design systems", "component libraries"]
+          },
+          {
+            "name": "css-expert",
+            "description": "Tailwind, Styled Components, CSS Grid/Flexbox",
+            "specialties": ["CSS", "styling", "layouts"],
+            "technologies": ["Tailwind", "Styled Components", "CSS Grid", "Flexbox"]
+          },
+          {
+            "name": "performance-optimizer",
+            "description": "Core Web Vitals, bundle optimization",
+            "specialties": ["performance", "optimization", "web vitals"],
+            "technologies": ["Webpack", "Vite", "performance tools", "optimization"]
+          },
+          {
+            "name": "accessibility-expert",
+            "description": "WCAG compliance, screen readers, ARIA",
+            "specialties": ["accessibility", "WCAG", "a11y"],
+            "technologies": ["ARIA", "screen readers", "WCAG", "accessibility tools"]
+          },
+          {
+            "name": "typescript-expert",
+            "description": "Advanced TypeScript, type systems, migration",
+            "specialties": ["TypeScript", "type systems", "migration"],
+            "technologies": ["TypeScript", "type systems", "generics", "migration"]
+          },
+          {
+            "name": "mobile-web-expert",
+            "description": "Responsive design, PWAs, mobile-first development",
+            "specialties": ["mobile web", "responsive", "PWA"],
+            "technologies": ["PWA", "responsive design", "mobile", "service workers"]
+          },
+          {
+            "name": "webassembly-specialist",
+            "description": "WASM modules, high-performance web apps",
+            "specialties": ["WebAssembly", "WASM", "performance"],
+            "technologies": ["WebAssembly", "Rust", "C++", "WASM"]
+          },
+          {
+            "name": "pwa-specialist",
+            "description": "Progressive Web Apps, offline functionality",
+            "specialties": ["PWA", "offline", "service workers"],
+            "technologies": ["PWA", "service workers", "manifest", "offline"]
+          }
+        ]
+      },
+      "fullstack-team": {
+        "name": "Full-Stack Development Team",
+        "description": "End-to-end application development specialists",
+        "location": "fullstack-team/",
+        "orchestrator": "fullstack-team-orchestrator",
+        "agents": [
+          {
+            "name": "fullstack-architect",
+            "description": "End-to-end application design",
+            "specialties": ["fullstack", "architecture", "system design"],
+            "technologies": ["full-stack", "architecture", "system design"]
+          },
+          {
+            "name": "fullstack-team-orchestrator",
+            "description": "Coordinates all full-stack development activities",
+            "specialties": ["team coordination", "fullstack architecture"],
+            "technologies": ["orchestration", "coordination", "management"]
+          },
+          {
+            "name": "nextjs-expert",
+            "description": "App Router, Server Actions, Middleware",
+            "specialties": ["Next.js", "React", "SSR"],
+            "technologies": ["Next.js", "React", "SSR", "SSG"]
+          },
+          {
+            "name": "remix-expert",
+            "description": "Nested routing, data loading, progressive enhancement",
+            "specialties": ["Remix", "React", "progressive enhancement"],
+            "technologies": ["Remix", "React", "nested routing", "data loading"]
+          },
+          {
+            "name": "svelte-expert",
+            "description": "SvelteKit, stores, reactive programming",
+            "specialties": ["Svelte", "SvelteKit", "reactivity"],
+            "technologies": ["Svelte", "SvelteKit", "stores", "reactive"]
+          },
+          {
+            "name": "t3-stack-expert",
+            "description": "TypeScript, tRPC, Prisma, NextAuth",
+            "specialties": ["T3 stack", "TypeScript", "tRPC"],
+            "technologies": ["TypeScript", "tRPC", "Prisma", "NextAuth"]
+          },
+          {
+            "name": "jamstack-expert",
+            "description": "Static site generation, headless CMS",
+            "specialties": ["JAMstack", "static sites", "headless CMS"],
+            "technologies": ["JAMstack", "static sites", "headless CMS", "SSG"]
+          },
+          {
+            "name": "serverless-expert",
+            "description": "Vercel, Netlify, AWS Lambda",
+            "specialties": ["serverless", "edge functions", "deployment"],
+            "technologies": ["Vercel", "Netlify", "AWS Lambda", "serverless"]
+          }
+        ]
+      },
+      "mobile-team": {
+        "name": "Mobile Development Team", 
+        "description": "Mobile application development specialists",
+        "location": "mobile-team/",
+        "orchestrator": "mobile-orchestrator",
+        "agents": [
+          {
+            "name": "mobile-architect",
+            "description": "Cross-platform strategy, native integration",
+            "specialties": ["mobile architecture", "cross-platform", "native"],
+            "technologies": ["mobile", "cross-platform", "native", "architecture"]
+          },
+          {
+            "name": "mobile-orchestrator",
+            "description": "Coordinates all mobile development activities",
+            "specialties": ["team coordination", "mobile strategy"],
+            "technologies": ["orchestration", "coordination", "management"]
+          },
+          {
+            "name": "react-native-expert",
+            "description": "Expo, navigation, native modules",
+            "specialties": ["React Native", "Expo", "mobile"],
+            "technologies": ["React Native", "Expo", "native modules", "navigation"]
+          },
+          {
+            "name": "flutter-expert",
+            "description": "Dart, widgets, state management",
+            "specialties": ["Flutter", "Dart", "mobile"],
+            "technologies": ["Flutter", "Dart", "widgets", "state management"]
+          },
+          {
+            "name": "ios-developer",
+            "description": "Swift, SwiftUI, Xcode, App Store",
+            "specialties": ["iOS", "Swift", "SwiftUI"],
+            "technologies": ["Swift", "SwiftUI", "Xcode", "iOS"]
+          },
+          {
+            "name": "android-developer",
+            "description": "Kotlin, Jetpack Compose, Play Store",
+            "specialties": ["Android", "Kotlin", "Jetpack Compose"],
+            "technologies": ["Kotlin", "Jetpack Compose", "Android", "Play Store"]
+          },
+          {
+            "name": "mobile-performance-expert",
+            "description": "Optimization, profiling, battery life",
+            "specialties": ["mobile performance", "optimization", "profiling"],
+            "technologies": ["performance", "optimization", "profiling", "battery"]
+          }
+        ]
+      },
+      "devops-team": {
+        "name": "DevOps & Infrastructure Team",
+        "description": "Infrastructure, deployment, and operations specialists",
+        "location": "devops-team/",
+        "orchestrator": "devops-orchestrator", 
+        "agents": [
+          {
+            "name": "devops-architect",
+            "description": "CI/CD pipelines, infrastructure as code",
+            "specialties": ["DevOps", "CI/CD", "infrastructure"],
+            "technologies": ["CI/CD", "IaC", "automation", "pipelines"]
+          },
+          {
+            "name": "devops-orchestrator",
+            "description": "Coordinates all DevOps and infrastructure activities",
+            "specialties": ["team coordination", "infrastructure strategy"],
+            "technologies": ["orchestration", "coordination", "management"]
+          },
+          {
+            "name": "docker-expert",
+            "description": "Containerization, multi-stage builds, security",
+            "specialties": ["Docker", "containerization", "containers"],
+            "technologies": ["Docker", "containers", "multi-stage builds", "security"]
+          },
+          {
+            "name": "kubernetes-expert",
+            "description": "Orchestration, helm charts, operators",
+            "specialties": ["Kubernetes", "orchestration", "helm"],
+            "technologies": ["Kubernetes", "helm", "operators", "YAML"]
+          },
+          {
+            "name": "aws-expert",
+            "description": "EC2, Lambda, RDS, S3, CloudFormation",
+            "specialties": ["AWS", "cloud", "serverless"],
+            "technologies": ["AWS", "EC2", "Lambda", "RDS", "S3", "CloudFormation"]
+          },
+          {
+            "name": "azure-expert",
+            "description": "App Services, Functions, Cosmos DB",
+            "specialties": ["Azure", "cloud", "Microsoft"],
+            "technologies": ["Azure", "App Services", "Functions", "Cosmos DB"]
+          },
+          {
+            "name": "gcp-expert",
+            "description": "Compute Engine, Cloud Functions, BigQuery",
+            "specialties": ["GCP", "Google Cloud", "BigQuery"],
+            "technologies": ["GCP", "Compute Engine", "Cloud Functions", "BigQuery"]
+          },
+          {
+            "name": "terraform-expert",
+            "description": "Infrastructure as code, modules, state",
+            "specialties": ["Terraform", "IaC", "infrastructure"],
+            "technologies": ["Terraform", "HCL", "IaC", "modules"]
+          },
+          {
+            "name": "pulumi-typescript-specialist",
+            "description": "Type-safe IaC, multi-cloud deployments",
+            "specialties": ["Pulumi", "TypeScript", "IaC"],
+            "technologies": ["Pulumi", "TypeScript", "IaC", "multi-cloud"]
+          },
+          {
+            "name": "monitoring-expert",
+            "description": "Observability, logging, alerting, SLI/SLO",
+            "specialties": ["monitoring", "observability", "alerting"],
+            "technologies": ["Prometheus", "Grafana", "monitoring", "alerting"]
+          },
+          {
+            "name": "site-reliability-engineer",
+            "description": "SRE practices, reliability automation",
+            "specialties": ["SRE", "reliability", "automation"],
+            "technologies": ["SRE", "reliability", "automation", "SLI/SLO"]
+          },
+          {
+            "name": "observability-engineer",
+            "description": "Distributed tracing, metrics, APM",
+            "specialties": ["observability", "tracing", "APM"],
+            "technologies": ["tracing", "metrics", "APM", "observability"]
+          }
+        ]
+      },
+      "data-ai-team": {
+        "name": "Data & AI Team",
+        "description": "Data science, machine learning, and AI specialists",
+        "location": "data-ai-team/",
+        "orchestrator": "data-ai-orchestrator",
+        "agents": [
+          {
+            "name": "data-architect",
+            "description": "Data warehouses, ETL pipelines, governance",
+            "specialties": ["data architecture", "ETL", "governance"],
+            "technologies": ["data warehouses", "ETL", "data governance", "pipelines"]
+          },
+          {
+            "name": "data-ai-orchestrator",
+            "description": "Coordinates all data and AI activities",
+            "specialties": ["team coordination", "data strategy"],
+            "technologies": ["orchestration", "coordination", "management"]
+          },
+          {
+            "name": "data-scientist",
+            "description": "Analytics, statistics, experimentation",
+            "specialties": ["data science", "statistics", "analytics"],
+            "technologies": ["Python", "R", "statistics", "ML", "analytics"]
+          },
+          {
+            "name": "ml-engineer",
+            "description": "Model training, feature engineering, pipelines",
+            "specialties": ["machine learning", "MLOps", "model training"],
+            "technologies": ["Python", "TensorFlow", "PyTorch", "scikit-learn", "MLOps"]
+          },
+          {
+            "name": "ai-engineer",
+            "description": "LLM applications, RAG systems, prompt engineering",
+            "specialties": ["AI", "LLM", "RAG", "prompt engineering"],
+            "technologies": ["LLM", "RAG", "prompt engineering", "AI APIs"]
+          },
+          {
+            "name": "data-engineer",
+            "description": "Streaming, batch processing, data lakes",
+            "specialties": ["data engineering", "streaming", "pipelines"],
+            "technologies": ["Apache Spark", "Kafka", "data lakes", "streaming"]
+          },
+          {
+            "name": "analytics-expert",
+            "description": "BI dashboards, reporting, KPIs",
+            "specialties": ["analytics", "BI", "dashboards"],
+            "technologies": ["BI tools", "dashboards", "analytics", "reporting"]
+          }
+        ]
+      },
+      "testing-team": {
+        "name": "Testing & QA Team",
+        "description": "Quality assurance and testing specialists",
+        "location": "testing-team/",
+        "orchestrator": "testing-orchestrator",
+        "agents": [
+          {
+            "name": "test-architect",
+            "description": "Testing strategy, pyramid, automation",
+            "specialties": ["testing strategy", "test automation", "QA"],
+            "technologies": ["testing frameworks", "automation", "strategy"]
+          },
+          {
+            "name": "testing-orchestrator",
+            "description": "Coordinates all testing and QA activities",
+            "specialties": ["team coordination", "testing strategy"],
+            "technologies": ["orchestration", "coordination", "management"]
+          },
+          {
+            "name": "unit-test-expert",
+            "description": "Jest, PyTest, JUnit, mocking",
+            "specialties": ["unit testing", "mocking", "TDD"],
+            "technologies": ["Jest", "PyTest", "JUnit", "mocking"]
+          },
+          {
+            "name": "integration-test-expert",
+            "description": "API testing, database testing",
+            "specialties": ["integration testing", "API testing"],
+            "technologies": ["API testing", "database testing", "integration"]
+          },
+          {
+            "name": "e2e-test-expert",
+            "description": "Playwright, Cypress, Selenium",
+            "specialties": ["E2E testing", "browser automation"],
+            "technologies": ["Playwright", "Cypress", "Selenium", "E2E"]
+          },
+          {
+            "name": "performance-test-expert",
+            "description": "Load testing, stress testing, benchmarking",
+            "specialties": ["performance testing", "load testing"],
+            "technologies": ["load testing", "stress testing", "performance"]
+          },
+          {
+            "name": "security-test-expert",
+            "description": "Vulnerability scanning, penetration testing",
+            "specialties": ["security testing", "penetration testing"],
+            "technologies": ["security scanning", "penetration testing", "vulnerabilities"]
+          },
+          {
+            "name": "mobile-test-expert",
+            "description": "Device testing, automated UI testing",
+            "specialties": ["mobile testing", "device testing"],
+            "technologies": ["mobile testing", "device automation", "UI testing"]
+          },
+          {
+            "name": "pr-reviewer-specialist",
+            "description": "Code review, security analysis, quality gates",
+            "specialties": ["code review", "security analysis", "quality"],
+            "technologies": ["code review", "static analysis", "quality gates"]
+          }
+        ]
+      },
+      "security-team": {
+        "name": "Security & Compliance Team",
+        "description": "Security, compliance, and risk management specialists",
+        "location": "security-team/",
+        "orchestrator": "security-orchestrator",
+        "agents": [
+          {
+            "name": "security-architect",
+            "description": "Threat modeling, security design",
+            "specialties": ["security architecture", "threat modeling"],
+            "technologies": ["security design", "threat modeling", "architecture"]
+          },
+          {
+            "name": "security-orchestrator",
+            "description": "Coordinates all security and compliance activities",
+            "specialties": ["team coordination", "security strategy"],
+            "technologies": ["orchestration", "coordination", "management"]
+          },
+          {
+            "name": "security-auditor",
+            "description": "OWASP compliance, vulnerability assessment",
+            "specialties": ["security auditing", "OWASP", "vulnerability assessment"],
+            "technologies": ["OWASP", "vulnerability scanning", "security auditing"]
+          },
+          {
+            "name": "auth-expert",
+            "description": "OAuth, JWT, SSO, zero-trust",
+            "specialties": ["authentication", "authorization", "SSO"],
+            "technologies": ["OAuth", "JWT", "SSO", "zero-trust"]
+          },
+          {
+            "name": "encryption-expert",
+            "description": "Cryptography, key management, certificates",
+            "specialties": ["encryption", "cryptography", "key management"],
+            "technologies": ["encryption", "cryptography", "certificates", "PKI"]
+          },
+          {
+            "name": "compliance-expert",
+            "description": "GDPR, HIPAA, SOX, audit preparation",
+            "specialties": ["compliance", "regulations", "audit"],
+            "technologies": ["GDPR", "HIPAA", "SOX", "compliance frameworks"]
+          },
+          {
+            "name": "penetration-tester",
+            "description": "Ethical hacking, security testing",
+            "specialties": ["penetration testing", "ethical hacking"],
+            "technologies": ["penetration testing", "security testing", "hacking tools"]
+          }
+        ]
+      },
+      "design-team": {
+        "name": "Design & UX Team",
+        "description": "User experience and visual design specialists",
+        "location": "design-team/",
+        "orchestrator": "design-orchestrator",
+        "agents": [
+          {
+            "name": "ui-designer",
+            "description": "Interface design, design systems, prototyping",
+            "specialties": ["UI design", "design systems", "prototyping"],
+            "technologies": ["Figma", "design systems", "prototyping", "UI"]
+          },
+          {
+            "name": "design-orchestrator",
+            "description": "Coordinates all design and UX activities",
+            "specialties": ["team coordination", "design strategy"],
+            "technologies": ["orchestration", "coordination", "management"]
+          },
+          {
+            "name": "ux-researcher",
+            "description": "User research, usability testing, personas",
+            "specialties": ["UX research", "usability testing", "user research"],
+            "technologies": ["user research", "usability testing", "personas"]
+          },
+          {
+            "name": "visual-designer",
+            "description": "Branding, illustrations, iconography",
+            "specialties": ["visual design", "branding", "illustrations"],
+            "technologies": ["visual design", "branding", "illustrations", "iconography"]
+          },
+          {
+            "name": "accessibility-designer",
+            "description": "Inclusive design, WCAG compliance",
+            "specialties": ["accessibility", "inclusive design", "WCAG"],
+            "technologies": ["accessibility", "WCAG", "inclusive design"]
+          }
+        ]
+      },
+      "business-team": {
+        "name": "Business Strategy Team",
+        "description": "Business strategy, analysis, and compliance specialists",
+        "location": "business-team/",
+        "orchestrator": "business-orchestrator",
+        "agents": [
+          {
+            "name": "business-strategist",
+            "description": "Strategic planning, market analysis",
+            "specialties": ["business strategy", "market analysis", "planning"],
+            "technologies": ["strategy", "market analysis", "business planning"]
+          },
+          {
+            "name": "business-orchestrator",
+            "description": "Coordinates all business strategy activities",
+            "specialties": ["team coordination", "business strategy"],
+            "technologies": ["orchestration", "coordination", "management"]
+          },
+          {
+            "name": "market-researcher",
+            "description": "Market sizing, customer research",
+            "specialties": ["market research", "customer research", "analysis"],
+            "technologies": ["market research", "customer analysis", "research"]
+          },
+          {
+            "name": "business-analyst",
+            "description": "Requirements analysis, process optimization",
+            "specialties": ["business analysis", "requirements", "process optimization"],
+            "technologies": ["business analysis", "requirements", "process improvement"]
+          },
+          {
+            "name": "financial-modeler",
+            "description": "Business models, forecasting, valuations",
+            "specialties": ["financial modeling", "forecasting", "valuations"],
+            "technologies": ["financial modeling", "forecasting", "Excel", "valuations"]
+          },
+          {
+            "name": "payment-integration-agent",
+            "description": "Payment systems, PCI compliance",
+            "specialties": ["payments", "PCI compliance", "financial systems"],
+            "technologies": ["Stripe", "PayPal", "payment gateways", "PCI DSS"]
+          },
+          {
+            "name": "healthcare-compliance-agent",
+            "description": "HIPAA, HITECH, FDA compliance",
+            "specialties": ["healthcare compliance", "HIPAA", "medical"],
+            "technologies": ["HIPAA", "HITECH", "FDA", "healthcare"]
+          }
+        ]
+      },
+      "marketing-team": {
+        "name": "Marketing & Growth Team",
+        "description": "Marketing, growth, and content specialists",
+        "location": "marketing-team/",
+        "orchestrator": "marketing-orchestrator",
+        "agents": [
+          {
+            "name": "growth-hacker",
+            "description": "Viral loops, A/B testing, conversion optimization",
+            "specialties": ["growth hacking", "A/B testing", "conversion"],
+            "technologies": ["A/B testing", "growth tools", "analytics", "conversion"]
+          },
+          {
+            "name": "marketing-orchestrator",
+            "description": "Coordinates all marketing and growth activities",
+            "specialties": ["team coordination", "marketing strategy"],
+            "technologies": ["orchestration", "coordination", "management"]
+          },
+          {
+            "name": "content-marketer",
+            "description": "Blog posts, social media, SEO content",
+            "specialties": ["content marketing", "SEO", "social media"],
+            "technologies": ["content marketing", "SEO", "social media", "blogging"]
+          },
+          {
+            "name": "seo-expert",
+            "description": "Technical SEO, keyword research, optimization",
+            "specialties": ["SEO", "keyword research", "optimization"],
+            "technologies": ["SEO", "keyword research", "Google Analytics", "optimization"]
+          },
+          {
+            "name": "social-media-manager",
+            "description": "Platform-specific strategies, engagement",
+            "specialties": ["social media", "engagement", "platforms"],
+            "technologies": ["social media", "platforms", "engagement", "analytics"]
+          }
+        ]
+      },
+      "product-team": {
+        "name": "Product Management Team",
+        "description": "Product strategy, management, and planning specialists",
+        "location": "product-team/",
+        "orchestrator": "product-orchestrator",
+        "agents": [
+          {
+            "name": "product-manager",
+            "description": "Feature planning, stakeholder management",
+            "specialties": ["product management", "feature planning", "stakeholders"],
+            "technologies": ["product management", "roadmaps", "stakeholder management"]
+          },
+          {
+            "name": "product-orchestrator",
+            "description": "Coordinates all product management activities",
+            "specialties": ["team coordination", "product strategy"],
+            "technologies": ["orchestration", "coordination", "management"]
+          },
+          {
+            "name": "product-owner",
+            "description": "Backlog management, sprint planning",
+            "specialties": ["product ownership", "backlog", "agile"],
+            "technologies": ["backlog management", "sprint planning", "agile"]
+          },
+          {
+            "name": "user-story-writer",
+            "description": "Requirements documentation, acceptance criteria",
+            "specialties": ["user stories", "requirements", "documentation"],
+            "technologies": ["user stories", "requirements", "acceptance criteria"]
+          },
+          {
+            "name": "roadmap-planner",
+            "description": "Strategic planning, timeline management",
+            "specialties": ["roadmap planning", "strategic planning", "timelines"],
+            "technologies": ["roadmap planning", "strategic planning", "project management"]
+          }
+        ]
+      },
+      "finance-team": {
+        "name": "Finance & Analytics Team",
+        "description": "Financial analysis and optimization specialists",
+        "location": "finance-team/",
+        "orchestrator": "finance-orchestrator",
+        "agents": [
+          {
+            "name": "financial-analyst",
+            "description": "Financial modeling, budget planning",
+            "specialties": ["financial analysis", "budgeting", "modeling"],
+            "technologies": ["financial modeling", "Excel", "budgeting", "analysis"]
+          },
+          {
+            "name": "finance-orchestrator",
+            "description": "Coordinates all finance and analytics activities",
+            "specialties": ["team coordination", "financial strategy"],
+            "technologies": ["orchestration", "coordination", "management"]
+          },
+          {
+            "name": "revenue-analyst",
+            "description": "Revenue optimization, pricing strategies",
+            "specialties": ["revenue analysis", "pricing", "optimization"],
+            "technologies": ["revenue analysis", "pricing", "optimization", "analytics"]
+          },
+          {
+            "name": "cost-optimizer",
+            "description": "Cost analysis, efficiency improvements",
+            "specialties": ["cost optimization", "efficiency", "analysis"],
+            "technologies": ["cost analysis", "optimization", "efficiency", "analytics"]
+          },
+          {
+            "name": "investment-analyst",
+            "description": "ROI analysis, investment decisions",
+            "specialties": ["investment analysis", "ROI", "decisions"],
+            "technologies": ["investment analysis", "ROI", "financial modeling"]
+          }
+        ]
+      },
+      "content-team": {
+        "name": "Content & Creative Team",
+        "description": "Content creation and creative specialists",
+        "location": "content-team/",
+        "orchestrator": "content-orchestrator",
+        "agents": [
+          {
+            "name": "content-creator",
+            "description": "Multi-platform content, storytelling",
+            "specialties": ["content creation", "storytelling", "multi-platform"],
+            "technologies": ["content creation", "storytelling", "multi-platform"]
+          },
+          {
+            "name": "content-orchestrator",
+            "description": "Coordinates all content and creative activities",
+            "specialties": ["team coordination", "content strategy"],
+            "technologies": ["orchestration", "coordination", "management"]
+          },
+          {
+            "name": "technical-writer",
+            "description": "Documentation, API docs, tutorials",
+            "specialties": ["technical writing", "documentation", "APIs"],
+            "technologies": ["technical writing", "documentation", "APIs", "tutorials"]
+          },
+          {
+            "name": "copywriter",
+            "description": "Marketing copy, product descriptions",
+            "specialties": ["copywriting", "marketing", "sales copy"],
+            "technologies": ["copywriting", "marketing copy", "sales copy"]
+          },
+          {
+            "name": "video-creator",
+            "description": "Video content, tutorials, promotional videos",
+            "specialties": ["video creation", "tutorials", "promotion"],
+            "technologies": ["video creation", "tutorials", "promotional content"]
+          },
+          {
+            "name": "graphic-designer",
+            "description": "Visual assets, presentations, infographics",
+            "specialties": ["graphic design", "visual assets", "infographics"],
+            "technologies": ["graphic design", "visual assets", "infographics"]
+          },
+          {
+            "name": "brand-guardian",
+            "description": "Brand consistency, style guide enforcement",
+            "specialties": ["brand management", "consistency", "style guides"],
+            "technologies": ["brand management", "style guides", "consistency"]
+          }
+        ]
+      },
+      "support-team": {
+        "name": "Support & Operations Team",
+        "description": "Customer support and operational specialists",
+        "location": "support-team/",
+        "orchestrator": "support-orchestrator",
+        "agents": [
+          {
+            "name": "customer-support",
+            "description": "Support tickets, customer communication",
+            "specialties": ["customer support", "communication", "tickets"],
+            "technologies": ["customer support", "ticketing systems", "communication"]
+          },
+          {
+            "name": "support-orchestrator",
+            "description": "Coordinates all support and operations activities",
+            "specialties": ["team coordination", "support strategy"],
+            "technologies": ["orchestration", "coordination", "management"]
+          },
+          {
+            "name": "operations-manager",
+            "description": "Process optimization, workflow management",
+            "specialties": ["operations", "process optimization", "workflows"],
+            "technologies": ["operations", "process optimization", "workflow management"]
+          },
+          {
+            "name": "qa-manager",
+            "description": "Quality assurance, testing coordination",
+            "specialties": ["QA management", "testing coordination", "quality"],
+            "technologies": ["QA management", "testing", "quality assurance"]
+          },
+          {
+            "name": "release-manager",
+            "description": "Release planning, deployment coordination",
+            "specialties": ["release management", "deployment", "coordination"],
+            "technologies": ["release management", "deployment", "CI/CD"]
+          },
+          {
+            "name": "incident-responder",
+            "description": "Production issues, emergency response",
+            "specialties": ["incident response", "emergency", "production"],
+            "technologies": ["incident response", "monitoring", "emergency response"]
+          },
+          {
+            "name": "documentation-manager",
+            "description": "Knowledge base, process documentation",
+            "specialties": ["documentation management", "knowledge base", "processes"],
+            "technologies": ["documentation", "knowledge management", "processes"]
+          },
+          {
+            "name": "quality-system-engineer",
+            "description": "Quality frameworks, process standardization",
+            "specialties": ["quality systems", "frameworks", "standardization"],
+            "technologies": ["quality systems", "frameworks", "standardization"]
+          }
+        ]
+      },
+      "memory-team": {
+        "name": "Memory Management Team",
+        "description": "Knowledge and memory management specialists",
+        "location": "memory-team/",
+        "orchestrator": "memory-agent",
+        "agents": [
+          {
+            "name": "memory-agent",
+            "description": "Persistent memory and knowledge management",
+            "specialties": ["memory management", "knowledge management", "persistence"],
+            "technologies": ["memory management", "knowledge graphs", "persistence"]
+          }
+        ]
+      },
+      "orchestration-team": {
+        "name": "Orchestration & Management Team",
+        "description": "Project coordination and management specialists",
+        "location": "orchestration-team/",
+        "orchestrator": "main-orchestrator",
+        "agents": [
+          {
+            "name": "main-orchestrator",
+            "description": "Master coordinator for all teams and complex projects",
+            "specialties": ["orchestration", "coordination", "project management"],
+            "technologies": ["orchestration", "coordination", "project management"]
+          },
+          {
+            "name": "memory-agent",
+            "description": "Persistent memory and knowledge management",
+            "specialties": ["memory management", "knowledge management"],
+            "technologies": ["memory management", "knowledge graphs"]
+          },
+          {
+            "name": "knowledge-graph-manager",
+            "description": "Semantic relationships, graph construction",
+            "specialties": ["knowledge graphs", "semantic relationships", "graph construction"],
+            "technologies": ["knowledge graphs", "semantic web", "graph databases"]
+          },
+          {
+            "name": "agent-communication-protocol",
+            "description": "Inter-agent communication, coordination",
+            "specialties": ["agent communication", "protocols", "coordination"],
+            "technologies": ["communication protocols", "agent coordination", "messaging"]
+          },
+          {
+            "name": "intelligent-agent-selector",
+            "description": "AI-powered agent selection, optimization",
+            "specialties": ["agent selection", "AI optimization", "routing"],
+            "technologies": ["AI selection", "optimization", "routing algorithms"]
+          },
+          {
+            "name": "tech-lead-orchestrator",
+            "description": "Technical leadership coordination",
+            "specialties": ["technical leadership", "coordination", "architecture"],
+            "technologies": ["technical leadership", "architecture", "coordination"]
+          },
+          {
+            "name": "project-analyst",
+            "description": "Deep project analysis, insights generation",
+            "specialties": ["project analysis", "insights", "metrics"],
+            "technologies": ["project analysis", "metrics", "insights"]
+          },
+          {
+            "name": "team-configurator",
+            "description": "Optimal AI team configuration",
+            "specialties": ["team configuration", "optimization", "setup"],
+            "technologies": ["team configuration", "optimization", "automation"]
+          },
+          {
+            "name": "project-manager",
+            "description": "Project coordination, timeline management",
+            "specialties": ["project management", "timelines", "coordination"],
+            "technologies": ["project management", "timelines", "coordination"]
+          },
+          {
+            "name": "tech-lead",
+            "description": "Technical leadership, architecture decisions",
+            "specialties": ["technical leadership", "architecture", "decisions"],
+            "technologies": ["technical leadership", "architecture", "decision making"]
+          },
+          {
+            "name": "scrum-master",
+            "description": "Agile processes, team facilitation",
+            "specialties": ["scrum", "agile", "facilitation"],
+            "technologies": ["scrum", "agile", "facilitation"]
+          },
+          {
+            "name": "workflow-orchestrator",
+            "description": "Multi-agent coordination, task delegation",
+            "specialties": ["workflow orchestration", "task delegation", "coordination"],
+            "technologies": ["workflow orchestration", "task management", "coordination"]
+          },
+          {
+            "name": "requirements-analyst",
+            "description": "Requirements gathering, analysis",
+            "specialties": ["requirements analysis", "gathering", "documentation"],
+            "technologies": ["requirements analysis", "documentation", "analysis"]
+          },
+          {
+            "name": "solution-architect",
+            "description": "High-level system design, technology selection",
+            "specialties": ["solution architecture", "system design", "technology selection"],
+            "technologies": ["solution architecture", "system design", "technology selection"]
+          }
+        ]
+      },
+      "specialized-team": {
+        "name": "Specialized Technology Team",
+        "description": "Advanced and specialized technology experts",
+        "location": "specialized-team/",
+        "orchestrator": "specialized-orchestrator",
+        "agents": [
+          {
+            "name": "specialized-orchestrator",
+            "description": "Coordinates all specialized technology projects",
+            "specialties": ["specialized coordination", "advanced technologies"],
+            "technologies": ["orchestration", "coordination", "advanced tech"]
+          },
+          {
+            "name": "blockchain-expert",
+            "description": "Smart contracts, Web3, DeFi, cryptocurrency",
+            "specialties": ["blockchain", "Web3", "DeFi", "smart contracts"],
+            "technologies": ["Ethereum", "Solidity", "Web3", "DeFi", "smart contracts"]
+          },
+          {
+            "name": "iot-expert",
+            "description": "Connected devices, sensors, edge computing",
+            "specialties": ["IoT", "sensors", "edge computing", "connected devices"],
+            "technologies": ["IoT", "sensors", "edge computing", "MQTT"]
+          },
+          {
+            "name": "game-developer",
+            "description": "Unity, Unreal Engine, game mechanics",
+            "specialties": ["game development", "Unity", "Unreal Engine"],
+            "technologies": ["Unity", "Unreal Engine", "C#", "game development"]
+          },
+          {
+            "name": "embedded-systems-expert",
+            "description": "Firmware, RTOS, hardware interfaces",
+            "specialties": ["embedded systems", "firmware", "RTOS"],
+            "technologies": ["embedded systems", "firmware", "RTOS", "C"]
+          },
+          {
+            "name": "ar-vr-expert",
+            "description": "Virtual reality, augmented reality, mixed reality",
+            "specialties": ["AR", "VR", "mixed reality", "immersive"],
+            "technologies": ["AR", "VR", "Unity XR", "Oculus", "ARKit"]
+          },
+          {
+            "name": "quantum-computing-expert",
+            "description": "Quantum algorithms, circuit design",
+            "specialties": ["quantum computing", "quantum algorithms", "circuits"],
+            "technologies": ["quantum computing", "Qiskit", "quantum algorithms"]
+          },
+          {
+            "name": "bioinformatics-expert",
+            "description": "Genomics, drug discovery, computational biology",
+            "specialties": ["bioinformatics", "genomics", "computational biology"],
+            "technologies": ["bioinformatics", "genomics", "Python", "R"]
+          },
+          {
+            "name": "robotics-expert",
+            "description": "ROS, autonomous systems, motion planning",
+            "specialties": ["robotics", "ROS", "autonomous systems"],
+            "technologies": ["ROS", "robotics", "autonomous systems", "motion planning"]
+          },
+          {
+            "name": "resilience-engineer",
+            "description": "Fault tolerance, chaos engineering, system hardening",
+            "specialties": ["resilience", "fault tolerance", "chaos engineering"],
+            "technologies": ["chaos engineering", "fault tolerance", "resilience patterns"]
+          },
+          {
+            "name": "git-expert",
+            "description": "Advanced Git operations, workflow optimization",
+            "specialties": ["Git", "version control", "workflows"],
+            "technologies": ["Git", "version control", "workflows", "branching"]
+          },
+          {
+            "name": "code-archaeologist",
+            "description": "Legacy code analysis, documentation recovery",
+            "specialties": ["legacy code", "code analysis", "documentation"],
+            "technologies": ["code analysis", "legacy systems", "documentation"]
+          },
+          {
+            "name": "error-detective",
+            "description": "Bug hunting, error pattern analysis",
+            "specialties": ["debugging", "error analysis", "bug hunting"],
+            "technologies": ["debugging", "error analysis", "monitoring"]
+          },
+          {
+            "name": "legacy-modernization-specialist",
+            "description": "System transformation, migration planning",
+            "specialties": ["legacy modernization", "migration", "transformation"],
+            "technologies": ["legacy modernization", "migration", "system transformation"]
+          },
+          {
+            "name": "developer-experience-optimizer",
+            "description": "DX improvement, productivity optimization",
+            "specialties": ["developer experience", "productivity", "optimization"],
+            "technologies": ["developer experience", "productivity", "tooling"]
+          },
+          {
+            "name": "prompt-engineer",
+            "description": "AI prompt optimization, LLM interaction design",
+            "specialties": ["prompt engineering", "LLM", "AI optimization"],
+            "technologies": ["prompt engineering", "LLM", "AI", "optimization"]
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,687 @@
+{
+  "name": "Claude Code Agents - Best Practices Hooks",
+  "version": "2.0.0",
+  "description": "Comprehensive code quality, linting, and best practices hooks for all supported languages and frameworks",
+  "hooks": {
+    "tool-use": [
+      {
+        "name": "universal-file-validation",
+        "description": "Universal file validation and basic checks",
+        "trigger": "after",
+        "tools": ["Edit", "Write", "MultiEdit"],
+        "command": "echo '🔍 Validating file changes...' && echo 'File: ${FILE_PATH}' && echo 'Size: $(wc -c < \"${FILE_PATH}\" 2>/dev/null || echo 'N/A') bytes'"
+      }
+    ],
+    "file-edit": [
+      {
+        "name": "python-quality-check",
+        "description": "Python code quality with Ruff, Black, and type checking",
+        "pattern": "**/*.py",
+        "commands": [
+          {
+            "name": "ruff-check",
+            "command": "ruff check --fix --exit-zero \"${FILE_PATH}\" && echo '✅ Ruff linting completed'",
+            "description": "Fast Python linting with Ruff"
+          },
+          {
+            "name": "black-format",
+            "command": "black --check --diff \"${FILE_PATH}\" || (black \"${FILE_PATH}\" && echo '🎨 Code formatted with Black')",
+            "description": "Python code formatting with Black"
+          },
+          {
+            "name": "isort-imports",
+            "command": "isort --check-only --diff \"${FILE_PATH}\" || (isort \"${FILE_PATH}\" && echo '📚 Imports sorted with isort')",
+            "description": "Sort Python imports"
+          },
+          {
+            "name": "mypy-check",
+            "command": "mypy --ignore-missing-imports --no-error-summary \"${FILE_PATH}\" && echo '🔍 Type checking passed'",
+            "description": "Static type checking with MyPy"
+          }
+        ]
+      },
+      {
+        "name": "javascript-typescript-quality",
+        "description": "JavaScript/TypeScript quality with Biome or ESLint",
+        "pattern": "**/*.{js,jsx,ts,tsx,mjs,cjs}",
+        "commands": [
+          {
+            "name": "biome-check",
+            "command": "npx biome check --apply \"${FILE_PATH}\" && echo '⚡ Biome check completed' || echo '⚠️ Biome not found, falling back to ESLint'",
+            "description": "Modern JavaScript/TypeScript linting and formatting with Biome",
+            "fallback": true
+          },
+          {
+            "name": "eslint-check",
+            "command": "npx eslint --fix \"${FILE_PATH}\" && echo '✅ ESLint check completed'",
+            "description": "JavaScript/TypeScript linting with ESLint",
+            "condition": "biome-check-failed"
+          },
+          {
+            "name": "prettier-format",
+            "command": "npx prettier --check \"${FILE_PATH}\" || (npx prettier --write \"${FILE_PATH}\" && echo '🎨 Code formatted with Prettier')",
+            "description": "Code formatting with Prettier",
+            "condition": "biome-check-failed"
+          },
+          {
+            "name": "typescript-check",
+            "command": "if [[ \"${FILE_PATH}\" == *.ts || \"${FILE_PATH}\" == *.tsx ]]; then npx tsc --noEmit --skipLibCheck \"${FILE_PATH}\" && echo '🔍 TypeScript check passed'; fi",
+            "description": "TypeScript type checking"
+          }
+        ]
+      },
+      {
+        "name": "go-quality-check",
+        "description": "Go code quality and formatting",
+        "pattern": "**/*.go",
+        "commands": [
+          {
+            "name": "gofmt-check",
+            "command": "gofmt -l \"${FILE_PATH}\" | grep -q . && (gofmt -w \"${FILE_PATH}\" && echo '🎨 Go code formatted') || echo '✅ Go formatting already correct'",
+            "description": "Go code formatting"
+          },
+          {
+            "name": "goimports-check",
+            "command": "goimports -l \"${FILE_PATH}\" | grep -q . && (goimports -w \"${FILE_PATH}\" && echo '📚 Go imports organized') || echo '✅ Go imports already organized'",
+            "description": "Organize Go imports"
+          },
+          {
+            "name": "golangci-lint",
+            "command": "golangci-lint run \"${FILE_PATH}\" && echo '✅ Go linting passed'",
+            "description": "Comprehensive Go linting"
+          },
+          {
+            "name": "go-vet",
+            "command": "go vet \"${FILE_PATH}\" && echo '🔍 Go vet passed'",
+            "description": "Go static analysis"
+          }
+        ]
+      },
+      {
+        "name": "rust-quality-check",
+        "description": "Rust code quality and formatting",
+        "pattern": "**/*.rs",
+        "commands": [
+          {
+            "name": "rustfmt-check",
+            "command": "rustfmt --check \"${FILE_PATH}\" || (rustfmt \"${FILE_PATH}\" && echo '🎨 Rust code formatted')",
+            "description": "Rust code formatting"
+          },
+          {
+            "name": "clippy-check",
+            "command": "cargo clippy --manifest-path=\"$(find . -name Cargo.toml -exec dirname {} \\; | head -1)/Cargo.toml\" -- -D warnings && echo '✅ Clippy linting passed'",
+            "description": "Rust linting with Clippy"
+          },
+          {
+            "name": "rust-check",
+            "command": "cargo check --manifest-path=\"$(find . -name Cargo.toml -exec dirname {} \\; | head -1)/Cargo.toml\" && echo '🔍 Rust check passed'",
+            "description": "Rust compilation check"
+          }
+        ]
+      },
+      {
+        "name": "java-quality-check",
+        "description": "Java code quality and formatting",
+        "pattern": "**/*.java",
+        "commands": [
+          {
+            "name": "google-java-format",
+            "command": "google-java-format --replace \"${FILE_PATH}\" && echo '🎨 Java code formatted'",
+            "description": "Java code formatting with Google Java Format"
+          },
+          {
+            "name": "checkstyle-check",
+            "command": "checkstyle -c /google_checks.xml \"${FILE_PATH}\" && echo '✅ Checkstyle passed'",
+            "description": "Java style checking with Checkstyle"
+          },
+          {
+            "name": "spotbugs-check",
+            "command": "spotbugs -textui \"${FILE_PATH}\" && echo '🔍 SpotBugs analysis passed'",
+            "description": "Java bug detection with SpotBugs"
+          }
+        ]
+      },
+      {
+        "name": "php-quality-check",
+        "description": "PHP code quality and formatting",
+        "pattern": "**/*.php",
+        "commands": [
+          {
+            "name": "php-cs-fixer",
+            "command": "php-cs-fixer fix \"${FILE_PATH}\" --dry-run --diff || (php-cs-fixer fix \"${FILE_PATH}\" && echo '🎨 PHP code formatted')",
+            "description": "PHP code formatting"
+          },
+          {
+            "name": "phpstan-check",
+            "command": "phpstan analyse \"${FILE_PATH}\" --level=5 && echo '🔍 PHPStan analysis passed'",
+            "description": "PHP static analysis"
+          },
+          {
+            "name": "psalm-check",
+            "command": "psalm \"${FILE_PATH}\" && echo '✅ Psalm check passed'",
+            "description": "PHP static analysis with Psalm"
+          }
+        ]
+      },
+      {
+        "name": "ruby-quality-check",
+        "description": "Ruby code quality and formatting",
+        "pattern": "**/*.rb",
+        "commands": [
+          {
+            "name": "rubocop-check",
+            "command": "rubocop --auto-correct \"${FILE_PATH}\" && echo '✅ RuboCop check completed'",
+            "description": "Ruby linting and formatting with RuboCop"
+          },
+          {
+            "name": "reek-check",
+            "command": "reek \"${FILE_PATH}\" && echo '🔍 Reek code smell detection passed'",
+            "description": "Ruby code smell detection"
+          }
+        ]
+      },
+      {
+        "name": "csharp-quality-check",
+        "description": "C# code quality and formatting",
+        "pattern": "**/*.cs",
+        "commands": [
+          {
+            "name": "dotnet-format",
+            "command": "dotnet format --include \"${FILE_PATH}\" && echo '🎨 C# code formatted'",
+            "description": "C# code formatting"
+          },
+          {
+            "name": "dotnet-build",
+            "command": "dotnet build --no-restore && echo '✅ C# build passed'",
+            "description": "C# compilation check"
+          }
+        ]
+      },
+      {
+        "name": "kotlin-quality-check",
+        "description": "Kotlin code quality and formatting",
+        "pattern": "**/*.kt",
+        "commands": [
+          {
+            "name": "ktlint-check",
+            "command": "ktlint --format \"${FILE_PATH}\" && echo '✅ Kotlin formatting completed'",
+            "description": "Kotlin linting and formatting"
+          },
+          {
+            "name": "detekt-check",
+            "command": "detekt --input \"${FILE_PATH}\" && echo '🔍 Detekt analysis passed'",
+            "description": "Kotlin static analysis"
+          }
+        ]
+      },
+      {
+        "name": "scala-quality-check",
+        "description": "Scala code quality and formatting",
+        "pattern": "**/*.scala",
+        "commands": [
+          {
+            "name": "scalafmt-check",
+            "command": "scalafmt --test \"${FILE_PATH}\" || (scalafmt \"${FILE_PATH}\" && echo '🎨 Scala code formatted')",
+            "description": "Scala code formatting"
+          },
+          {
+            "name": "scalafix-check",
+            "command": "scalafix --check \"${FILE_PATH}\" && echo '✅ Scalafix check passed'",
+            "description": "Scala linting and refactoring"
+          }
+        ]
+      },
+      {
+        "name": "swift-quality-check",
+        "description": "Swift code quality and formatting",
+        "pattern": "**/*.swift",
+        "commands": [
+          {
+            "name": "swiftformat-check",
+            "command": "swiftformat --lint \"${FILE_PATH}\" || (swiftformat \"${FILE_PATH}\" && echo '🎨 Swift code formatted')",
+            "description": "Swift code formatting"
+          },
+          {
+            "name": "swiftlint-check",
+            "command": "swiftlint lint \"${FILE_PATH}\" && echo '✅ SwiftLint check passed'",
+            "description": "Swift linting"
+          }
+        ]
+      },
+      {
+        "name": "dart-flutter-quality-check",
+        "description": "Dart/Flutter code quality and formatting",
+        "pattern": "**/*.dart",
+        "commands": [
+          {
+            "name": "dart-format",
+            "command": "dart format \"${FILE_PATH}\" && echo '🎨 Dart code formatted'",
+            "description": "Dart code formatting"
+          },
+          {
+            "name": "dart-analyze",
+            "command": "dart analyze \"${FILE_PATH}\" && echo '🔍 Dart analysis passed'",
+            "description": "Dart static analysis"
+          },
+          {
+            "name": "flutter-analyze",
+            "command": "if flutter --version >/dev/null 2>&1; then flutter analyze \"${FILE_PATH}\" && echo '✅ Flutter analysis passed'; fi",
+            "description": "Flutter-specific analysis"
+          }
+        ]
+      },
+      {
+        "name": "elixir-quality-check",
+        "description": "Elixir code quality and formatting",
+        "pattern": "**/*.{ex,exs}",
+        "commands": [
+          {
+            "name": "mix-format",
+            "command": "mix format \"${FILE_PATH}\" && echo '🎨 Elixir code formatted'",
+            "description": "Elixir code formatting"
+          },
+          {
+            "name": "credo-check",
+            "command": "mix credo \"${FILE_PATH}\" && echo '✅ Credo analysis passed'",
+            "description": "Elixir code analysis with Credo"
+          },
+          {
+            "name": "dialyzer-check",
+            "command": "mix dialyzer \"${FILE_PATH}\" && echo '🔍 Dialyzer type analysis passed'",
+            "description": "Elixir type analysis"
+          }
+        ]
+      },
+      {
+        "name": "css-scss-quality-check",
+        "description": "CSS/SCSS code quality and formatting",
+        "pattern": "**/*.{css,scss,sass,less}",
+        "commands": [
+          {
+            "name": "stylelint-check",
+            "command": "npx stylelint --fix \"${FILE_PATH}\" && echo '✅ Stylelint check completed'",
+            "description": "CSS/SCSS linting with Stylelint"
+          },
+          {
+            "name": "prettier-css",
+            "command": "npx prettier --check \"${FILE_PATH}\" || (npx prettier --write \"${FILE_PATH}\" && echo '🎨 CSS formatted with Prettier')",
+            "description": "CSS formatting with Prettier"
+          }
+        ]
+      },
+      {
+        "name": "html-quality-check",
+        "description": "HTML code quality and formatting",
+        "pattern": "**/*.html",
+        "commands": [
+          {
+            "name": "htmlhint-check",
+            "command": "npx htmlhint \"${FILE_PATH}\" && echo '✅ HTMLHint check passed'",
+            "description": "HTML linting with HTMLHint"
+          },
+          {
+            "name": "prettier-html",
+            "command": "npx prettier --check \"${FILE_PATH}\" || (npx prettier --write \"${FILE_PATH}\" && echo '🎨 HTML formatted with Prettier')",
+            "description": "HTML formatting with Prettier"
+          }
+        ]
+      },
+      {
+        "name": "json-yaml-quality-check",
+        "description": "JSON/YAML code quality and formatting",
+        "pattern": "**/*.{json,yaml,yml}",
+        "commands": [
+          {
+            "name": "json-yaml-validate",
+            "command": "if [[ \"${FILE_PATH}\" == *.json ]]; then python -m json.tool \"${FILE_PATH}\" >/dev/null && echo '✅ JSON syntax valid'; elif [[ \"${FILE_PATH}\" == *.yaml || \"${FILE_PATH}\" == *.yml ]]; then python -c 'import yaml; yaml.safe_load(open(\"${FILE_PATH}\"))' && echo '✅ YAML syntax valid'; fi",
+            "description": "JSON/YAML syntax validation"
+          },
+          {
+            "name": "prettier-json-yaml",
+            "command": "npx prettier --check \"${FILE_PATH}\" || (npx prettier --write \"${FILE_PATH}\" && echo '🎨 JSON/YAML formatted')",
+            "description": "JSON/YAML formatting"
+          }
+        ]
+      },
+      {
+        "name": "markdown-quality-check",
+        "description": "Markdown quality and formatting",
+        "pattern": "**/*.md",
+        "commands": [
+          {
+            "name": "markdownlint-check",
+            "command": "npx markdownlint --fix \"${FILE_PATH}\" && echo '✅ Markdown linting completed'",
+            "description": "Markdown linting"
+          },
+          {
+            "name": "prettier-markdown",
+            "command": "npx prettier --check \"${FILE_PATH}\" || (npx prettier --write \"${FILE_PATH}\" && echo '🎨 Markdown formatted')",
+            "description": "Markdown formatting"
+          }
+        ]
+      },
+      {
+        "name": "dockerfile-quality-check",
+        "description": "Dockerfile quality and security",
+        "pattern": "**/Dockerfile*",
+        "commands": [
+          {
+            "name": "hadolint-check",
+            "command": "hadolint \"${FILE_PATH}\" && echo '✅ Dockerfile linting passed'",
+            "description": "Dockerfile linting with Hadolint"
+          },
+          {
+            "name": "docker-security-check",
+            "command": "echo '🔍 Security: Consider using specific version tags instead of latest' && grep -q ':latest' \"${FILE_PATH}\" && echo '⚠️ Warning: Found :latest tag' || echo '✅ No :latest tags found'",
+            "description": "Basic Dockerfile security check"
+          }
+        ]
+      }
+    ],
+    "framework-specific": [
+      {
+        "name": "react-project-check",
+        "description": "React-specific quality checks",
+        "pattern": "**/package.json",
+        "condition": "contains react",
+        "commands": [
+          {
+            "name": "react-hooks-check",
+            "command": "npx eslint --ext .jsx,.tsx . --rule 'react-hooks/rules-of-hooks: error' --rule 'react-hooks/exhaustive-deps: warn' && echo '✅ React Hooks rules verified'",
+            "description": "React Hooks linting"
+          },
+          {
+            "name": "react-a11y-check",
+            "command": "npx eslint --ext .jsx,.tsx . --rule 'jsx-a11y/*: error' && echo '♿ React accessibility check passed'",
+            "description": "React accessibility checking"
+          }
+        ]
+      },
+      {
+        "name": "vue-project-check",
+        "description": "Vue-specific quality checks",
+        "pattern": "**/package.json",
+        "condition": "contains vue",
+        "commands": [
+          {
+            "name": "vue-eslint-check",
+            "command": "npx eslint --ext .vue . && echo '✅ Vue linting passed'",
+            "description": "Vue component linting"
+          },
+          {
+            "name": "vue-style-check",
+            "command": "npx stylelint **/*.vue && echo '🎨 Vue style checking passed'",
+            "description": "Vue style checking"
+          }
+        ]
+      },
+      {
+        "name": "angular-project-check",
+        "description": "Angular-specific quality checks",
+        "pattern": "**/angular.json",
+        "commands": [
+          {
+            "name": "ng-lint-check",
+            "command": "ng lint && echo '✅ Angular linting passed'",
+            "description": "Angular CLI linting"
+          },
+          {
+            "name": "ng-build-check",
+            "command": "ng build --configuration=development --source-map=false && echo '✅ Angular build check passed'",
+            "description": "Angular build verification"
+          }
+        ]
+      },
+      {
+        "name": "nextjs-project-check",
+        "description": "Next.js-specific quality checks",
+        "pattern": "**/next.config.{js,mjs,ts}",
+        "commands": [
+          {
+            "name": "nextjs-build-check",
+            "command": "npx next build --no-lint && echo '✅ Next.js build check passed'",
+            "description": "Next.js build verification"
+          },
+          {
+            "name": "nextjs-lint-check",
+            "command": "npx next lint && echo '✅ Next.js linting passed'",
+            "description": "Next.js built-in linting"
+          }
+        ]
+      },
+      {
+        "name": "svelte-project-check",
+        "description": "Svelte-specific quality checks",
+        "pattern": "**/*.svelte",
+        "commands": [
+          {
+            "name": "svelte-check",
+            "command": "npx svelte-check --fail-on-warnings && echo '✅ Svelte check passed'",
+            "description": "Svelte component checking"
+          },
+          {
+            "name": "svelte-lint",
+            "command": "npx eslint --ext .svelte . && echo '✅ Svelte linting passed'",
+            "description": "Svelte linting"
+          }
+        ]
+      }
+    ],
+    "security-checks": [
+      {
+        "name": "dependency-security-audit",
+        "description": "Security audit for dependencies",
+        "pattern": "**/package.json",
+        "commands": [
+          {
+            "name": "npm-audit",
+            "command": "npm audit --audit-level=moderate && echo '🔒 NPM security audit passed'",
+            "description": "NPM dependency security audit"
+          },
+          {
+            "name": "snyk-test",
+            "command": "if command -v snyk >/dev/null 2>&1; then snyk test && echo '🔒 Snyk security scan passed'; else echo '⚠️ Snyk not installed, skipping security scan'; fi",
+            "description": "Snyk security testing"
+          }
+        ]
+      },
+      {
+        "name": "python-security-check",
+        "description": "Python security scanning",
+        "pattern": "**/*.py",
+        "commands": [
+          {
+            "name": "bandit-security",
+            "command": "bandit -r \"${FILE_PATH}\" -f json | jq '.results | length' | xargs -I {} echo 'Found {} security issues' && echo '🔒 Bandit security scan completed'",
+            "description": "Python security scanning with Bandit"
+          },
+          {
+            "name": "safety-check",
+            "command": "safety check --json && echo '🔒 Safety dependency check passed'",
+            "description": "Python dependency vulnerability check"
+          }
+        ]
+      },
+      {
+        "name": "secrets-detection",
+        "description": "Detect secrets and sensitive information",
+        "pattern": "**/*",
+        "commands": [
+          {
+            "name": "detect-secrets",
+            "command": "if command -v detect-secrets >/dev/null 2>&1; then detect-secrets scan \"${FILE_PATH}\" && echo '🔐 No secrets detected'; else echo '⚠️ detect-secrets not installed, checking basic patterns'; grep -E '(password|secret|key|token|api_key).*=.*['\''\"'].+['\''\"']' \"${FILE_PATH}\" && echo '⚠️ Potential secrets found' || echo '✅ No obvious secrets found'; fi",
+            "description": "Secret detection scanning"
+          }
+        ]
+      }
+    ],
+    "testing-hooks": [
+      {
+        "name": "python-test-runner",
+        "description": "Run Python tests after code changes",
+        "pattern": "**/*.py",
+        "commands": [
+          {
+            "name": "pytest-run",
+            "command": "if [ -f pytest.ini ] || [ -f pyproject.toml ] || [ -d tests ]; then python -m pytest --tb=short -v && echo '🧪 Python tests passed'; else echo 'ℹ️ No Python test configuration found'; fi",
+            "description": "Run Python tests with pytest"
+          },
+          {
+            "name": "coverage-check",
+            "command": "if command -v coverage >/dev/null 2>&1 && [ -f .coveragerc ]; then coverage run -m pytest && coverage report --show-missing && echo '📊 Coverage report generated'; fi",
+            "description": "Python test coverage"
+          }
+        ]
+      },
+      {
+        "name": "javascript-test-runner",
+        "description": "Run JavaScript/TypeScript tests",
+        "pattern": "**/*.{js,jsx,ts,tsx}",
+        "commands": [
+          {
+            "name": "jest-test",
+            "command": "if [ -f jest.config.js ] || [ -f jest.config.ts ] || grep -q '\"jest\"' package.json 2>/dev/null; then npm test -- --passWithNoTests && echo '🧪 JavaScript tests passed'; fi",
+            "description": "Run Jest tests"
+          },
+          {
+            "name": "vitest-run",
+            "command": "if grep -q '\"vitest\"' package.json 2>/dev/null; then npx vitest run && echo '🧪 Vitest tests passed'; fi",
+            "description": "Run Vitest tests"
+          }
+        ]
+      }
+    ],
+    "documentation-hooks": [
+      {
+        "name": "auto-documentation",
+        "description": "Generate documentation for code changes",
+        "pattern": "**/*.{py,js,ts,jsx,tsx,java,go,rs}",
+        "commands": [
+          {
+            "name": "docstring-check",
+            "command": "if [[ \"${FILE_PATH}\" == *.py ]]; then python -c \"import ast; import sys; tree = ast.parse(open('${FILE_PATH}').read()); funcs = [n for n in ast.walk(tree) if isinstance(n, ast.FunctionDef)]; missing = [f.name for f in funcs if not ast.get_docstring(f)]; print(f'⚠️ Missing docstrings: {missing}' if missing else '📚 All functions documented')\"; fi",
+            "description": "Check for missing docstrings"
+          },
+          {
+            "name": "jsdoc-check",
+            "command": "if [[ \"${FILE_PATH}\" == *.js || \"${FILE_PATH}\" == *.ts ]]; then grep -q '/\\*\\*' \"${FILE_PATH}\" && echo '📚 JSDoc found' || echo '⚠️ Consider adding JSDoc comments'; fi",
+            "description": "Check for JSDoc comments"
+          }
+        ]
+      }
+    ],
+    "performance-hooks": [
+      {
+        "name": "bundle-size-check",
+        "description": "Check bundle size impact",
+        "pattern": "**/package.json",
+        "commands": [
+          {
+            "name": "bundle-analyzer",
+            "command": "if grep -q 'webpack-bundle-analyzer' package.json 2>/dev/null; then npm run analyze && echo '📊 Bundle analysis completed'; fi",
+            "description": "Bundle size analysis"
+          },
+          {
+            "name": "lighthouse-ci",
+            "command": "if command -v lhci >/dev/null 2>&1; then lhci autorun && echo '🚦 Lighthouse CI check passed'; fi",
+            "description": "Lighthouse performance check"
+          }
+        ]
+      }
+    ],
+    "git-hooks": [
+      {
+        "name": "commit-message-lint",
+        "description": "Lint commit messages",
+        "trigger": "pre-commit",
+        "commands": [
+          {
+            "name": "commitlint",
+            "command": "npx commitlint --edit $1 && echo '✅ Commit message format valid'",
+            "description": "Commit message linting"
+          }
+        ]
+      },
+      {
+        "name": "pre-push-quality-gate",
+        "description": "Quality gate before push",
+        "trigger": "pre-push",
+        "commands": [
+          {
+            "name": "full-test-suite",
+            "command": "npm run test:ci && echo '🧪 All tests passed before push'",
+            "description": "Run full test suite before push"
+          },
+          {
+            "name": "security-audit",
+            "command": "npm audit --audit-level=high && echo '🔒 Security audit passed'",
+            "description": "Security audit before push"
+          }
+        ]
+      }
+    ]
+  },
+  "global-settings": {
+    "timeout": 300,
+    "parallel-execution": true,
+    "fail-fast": false,
+    "verbose": true,
+    "auto-fix": true,
+    "skip-on-error": false,
+    "notification": {
+      "success": "✅ All quality checks passed!",
+      "failure": "❌ Quality checks failed. Please review and fix the issues.",
+      "warning": "⚠️ Quality checks completed with warnings."
+    }
+  },
+  "environment-variables": {
+    "NODE_ENV": "development",
+    "PYTHONPATH": ".",
+    "GO_ENV": "development",
+    "RUST_BACKTRACE": "1"
+  },
+  "tool-paths": {
+    "ruff": "ruff",
+    "black": "black",
+    "mypy": "mypy",
+    "eslint": "npx eslint",
+    "prettier": "npx prettier",
+    "biome": "npx biome",
+    "golangci-lint": "golangci-lint",
+    "rustfmt": "rustfmt",
+    "cargo": "cargo"
+  },
+  "installation-guide": {
+    "python": [
+      "pip install ruff black isort mypy bandit safety",
+      "# For development dependencies:",
+      "pip install pre-commit pytest coverage"
+    ],
+    "javascript": [
+      "npm install -D @biomejs/biome",
+      "# OR traditional setup:",
+      "npm install -D eslint prettier @typescript-eslint/parser @typescript-eslint/eslint-plugin",
+      "npm install -D husky lint-staged"
+    ],
+    "go": [
+      "go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest",
+      "go install golang.org/x/tools/cmd/goimports@latest"
+    ],
+    "rust": [
+      "rustup component add rustfmt clippy"
+    ],
+    "java": [
+      "# Install via package manager or download:",
+      "# - Google Java Format",
+      "# - Checkstyle",
+      "# - SpotBugs"
+    ],
+    "global-tools": [
+      "npm install -g @commitlint/cli @commitlint/config-conventional",
+      "npm install -g markdownlint-cli",
+      "# Optional security tools:",
+      "npm install -g snyk",
+      "pip install detect-secrets"
+    ]
+  }
+}

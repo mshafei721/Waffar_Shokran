@@ -1,0 +1,429 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Custom fonts */
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Noto Sans Arabic', 'Inter', system-ui, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Arabic font family */
+  .font-arabic {
+    font-family: 'Noto Sans Arabic', system-ui, sans-serif;
+    direction: rtl;
+  }
+
+  /* English font family */
+  .font-english {
+    font-family: 'Inter', system-ui, sans-serif;
+    direction: ltr;
+  }
+
+  /* RTL layout adjustments */
+  [dir="rtl"] {
+    text-align: right;
+  }
+
+  [dir="rtl"] .rtl\:text-left {
+    text-align: left !important;
+  }
+
+  [dir="rtl"] .rtl\:text-right {
+    text-align: right !important;
+  }
+
+  /* Number formatting for Arabic */
+  .arabic-numbers {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Price display styling */
+  .price-display {
+    font-weight: 600;
+    letter-spacing: 0.025em;
+  }
+
+  /* Focus styles for accessibility */
+  *:focus {
+    outline: 2px solid theme('colors.egyptian.500');
+    outline-offset: 2px;
+  }
+
+  /* Remove focus outline for mouse users */
+  .js-focus-visible *:focus:not(.focus-visible) {
+    outline: none;
+  }
+}
+
+/* Component styles */
+@layer components {
+  /* Button variants */
+  .btn-primary {
+    @apply px-4 py-2 bg-egyptian-600 text-white font-medium rounded-md hover:bg-egyptian-700 focus:outline-none focus:ring-2 focus:ring-egyptian-500 focus:ring-offset-2 transition-colors duration-200;
+  }
+
+  .btn-secondary {
+    @apply px-4 py-2 border border-gray-300 text-gray-700 font-medium rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-egyptian-500 focus:ring-offset-2 transition-colors duration-200;
+  }
+
+  .btn-ghost {
+    @apply px-4 py-2 text-gray-700 font-medium rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-egyptian-500 focus:ring-offset-2 transition-colors duration-200;
+  }
+
+  /* Input styles */
+  .input-primary {
+    @apply w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-egyptian-500 focus:border-egyptian-500 transition-colors duration-200;
+  }
+
+  /* Card styles */
+  .card {
+    @apply bg-white border border-gray-200 rounded-lg shadow-sm;
+  }
+
+  .card-hover {
+    @apply card hover:shadow-md transition-shadow duration-200;
+  }
+
+  /* Loading animation */
+  .loading-dots {
+    @apply inline-flex space-x-1;
+  }
+
+  .loading-dots div {
+    @apply w-2 h-2 bg-current rounded-full animate-pulse;
+  }
+
+  .loading-dots div:nth-child(1) {
+    animation-delay: 0ms;
+  }
+
+  .loading-dots div:nth-child(2) {
+    animation-delay: 150ms;
+  }
+
+  .loading-dots div:nth-child(3) {
+    animation-delay: 300ms;
+  }
+
+  /* Skeleton loading */
+  .skeleton {
+    @apply bg-gray-200 animate-pulse rounded;
+  }
+
+  .skeleton-text {
+    @apply skeleton h-4 w-full;
+  }
+
+  .skeleton-title {
+    @apply skeleton h-6 w-3/4;
+  }
+
+  .skeleton-avatar {
+    @apply skeleton h-12 w-12 rounded-full;
+  }
+
+  /* Price comparison styles */
+  .price-cheapest {
+    @apply text-green-600 font-bold;
+  }
+
+  .price-regular {
+    @apply text-gray-900 font-semibold;
+  }
+
+  .price-expensive {
+    @apply text-red-600 font-semibold;
+  }
+
+  /* Retailer badge styles */
+  .retailer-badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .retailer-badge-carrefour {
+    @apply retailer-badge bg-blue-100 text-blue-800;
+  }
+
+  .retailer-badge-spinneys {
+    @apply retailer-badge bg-green-100 text-green-800;
+  }
+
+  .retailer-badge-metro {
+    @apply retailer-badge bg-yellow-100 text-yellow-800;
+  }
+
+  .retailer-badge-default {
+    @apply retailer-badge bg-gray-100 text-gray-800;
+  }
+
+  /* Search suggestions */
+  .search-suggestion {
+    @apply px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer transition-colors duration-150;
+  }
+
+  .search-suggestion:first-child {
+    @apply rounded-t-md;
+  }
+
+  .search-suggestion:last-child {
+    @apply rounded-b-md;
+  }
+
+  /* Error states */
+  .error-text {
+    @apply text-red-600 text-sm;
+  }
+
+  .error-border {
+    @apply border-red-300 focus:border-red-500 focus:ring-red-500;
+  }
+
+  /* Success states */
+  .success-text {
+    @apply text-green-600 text-sm;
+  }
+
+  .success-border {
+    @apply border-green-300 focus:border-green-500 focus:ring-green-500;
+  }
+}
+
+/* Utility classes */
+@layer utilities {
+  /* RTL spacing utilities */
+  .rtl\:space-x-reverse > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 1;
+  }
+
+  /* Text direction utilities */
+  .dir-rtl {
+    direction: rtl;
+  }
+
+  .dir-ltr {
+    direction: ltr;
+  }
+
+  /* Scrollbar styling */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: theme('colors.gray.100');
+    border-radius: 3px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: theme('colors.gray.300');
+    border-radius: 3px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: theme('colors.gray.400');
+  }
+
+  /* Text truncation utilities */
+  .truncate-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .truncate-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Animation utilities */
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out;
+  }
+
+  .animate-slide-down {
+    animation: slideDown 0.3s ease-out;
+  }
+
+  /* Responsive text sizing for Arabic */
+  .text-responsive {
+    font-size: clamp(0.875rem, 2.5vw, 1rem);
+  }
+
+  .text-responsive-lg {
+    font-size: clamp(1rem, 3vw, 1.25rem);
+  }
+
+  .text-responsive-xl {
+    font-size: clamp(1.25rem, 4vw, 1.5rem);
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 53%, 80%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  40%, 43% {
+    transform: translate3d(0, -8px, 0);
+  }
+  70% {
+    transform: translate3d(0, -4px, 0);
+  }
+  90% {
+    transform: translate3d(0, -2px, 0);
+  }
+}
+
+/* Mobile optimizations */
+@media (max-width: 640px) {
+  /* Improve tap targets */
+  button, 
+  a, 
+  input[type="button"], 
+  input[type="submit"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Larger text for better readability */
+  body {
+    font-size: 16px;
+  }
+
+  /* Better spacing on mobile */
+  .mobile-spacing {
+    padding: 1rem;
+  }
+
+  /* Mobile-friendly forms */
+  input[type="text"],
+  input[type="search"],
+  input[type="email"],
+  input[type="number"],
+  select,
+  textarea {
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .card {
+    @apply border-2 border-gray-400;
+  }
+
+  .btn-primary {
+    @apply border-2 border-egyptian-800;
+  }
+
+  .btn-secondary {
+    @apply border-2 border-gray-600;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .animate-spin {
+    animation: none;
+  }
+
+  .animate-bounce {
+    animation: none;
+  }
+
+  .animate-pulse {
+    animation: none;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  .print-friendly {
+    color: black !important;
+    background: white !important;
+  }
+
+  /* Ensure proper page breaks */
+  .break-before-page {
+    page-break-before: always;
+  }
+
+  .break-after-page {
+    page-break-after: always;
+  }
+
+  /* Hide unnecessary elements when printing */
+  header,
+  footer,
+  .filter-panel,
+  .loading-spinner {
+    display: none;
+  }
+}
